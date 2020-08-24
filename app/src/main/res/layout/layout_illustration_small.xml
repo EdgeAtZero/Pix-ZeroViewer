@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="PrivateResource">
+
+    <data>
+
+        <variable
+            name="drawable"
+            type="android.graphics.drawable.Drawable" />
+
+        <variable
+            name="illustration"
+            type="com.edgeatzero.projects.pixiv.model.Illustration" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView style="@style/AppStyle.CardView.Small">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ConstraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/ImageView"
+                url="@{illustration.url}"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:contentDescription="@string/string_illustration"
+                android:foreground="@drawable/shadow_bottom"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="UnusedAttribute"
+                tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+            <com.edgeatzero.library.view.ShapeImageView
+                android:id="@+id/ShapeImageView_HeadIcon"
+                url="@{illustration.user.profileImageUrls.medium}"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="8dp"
+                android:contentDescription="@string/description_head_picture"
+                android:scaleType="centerCrop"
+                app:circle="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:src="@tools:sample/avatars" />
+
+
+            <TextView
+                android:id="@+id/TextView_Title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:ellipsize="end"
+                android:lines="1"
+                android:shadowColor="@color/material_black"
+                android:shadowDx="1.5"
+                android:shadowDy="1.5"
+                android:shadowRadius="1.5"
+                android:text="@{illustration.title}"
+                android:textColor="@color/abc_primary_text_material_dark"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/ShapeImageView_HeadIcon"
+                app:layout_constraintEnd_toEndOf="@+id/TextView_Author"
+                app:layout_constraintStart_toStartOf="@+id/ShapeImageView_HeadIcon"
+                tools:text="@tools:sample/lorem" />
+
+            <TextView
+                android:id="@+id/TextView_Author"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:ellipsize="end"
+                android:lines="1"
+                android:shadowColor="@color/material_black"
+                android:shadowDx="1.5"
+                android:shadowDy="1.5"
+                android:shadowRadius="1.5"
+                android:text="@{illustration.author}"
+                android:textColor="@color/abc_secondary_text_material_dark"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="@id/ShapeImageView_HeadIcon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ShapeImageView_HeadIcon"
+                app:layout_constraintTop_toTopOf="@id/ShapeImageView_HeadIcon"
+                tools:ignore="SmallSp"
+                tools:text="@tools:sample/full_names" />
+
+            <ImageView
+                android:id="@+id/ImageView_Ranking"
+                visible="@{drawable != null}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:contentDescription="@string/description_ranking_icon"
+                android:src="@{drawable}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@drawable/ic_ranking_first" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

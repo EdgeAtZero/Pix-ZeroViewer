@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.edgeatzero.projects.pixiv.model.Illustration" />
+
+        <variable
+            name="showButton"
+            type="Boolean" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.edgeatzero.library.view.ShapeImageView
+            android:id="@+id/ShapeImageView"
+            url="@{data.headPicture}"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginVertical="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="4dp"
+            android:contentDescription="@string/string_head_icon"
+            android:scaleType="centerCrop"
+            app:circle="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/TextView_Title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/TextView_Title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="4dp"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="@{data.title}"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/TextView_Author"
+            app:layout_constraintEnd_toStartOf="@id/TextView_Commentary"
+            app:layout_constraintStart_toEndOf="@id/ShapeImageView"
+            app:layout_constraintTop_toTopOf="@id/ShapeImageView"
+            app:layout_constraintVertical_chainStyle="spread"
+            app:layout_goneMarginEnd="16dp"
+            tools:text="@tools:sample/lorem" />
+
+        <TextView
+            android:id="@+id/TextView_Author"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="@{data.author}"
+            android:textColor="?android:attr/textColorSecondary"
+            android:textSize="10sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="@id/ShapeImageView"
+            app:layout_constraintEnd_toEndOf="@id/TextView_Title"
+            app:layout_constraintStart_toStartOf="@id/TextView_Title"
+            app:layout_constraintTop_toBottomOf="@id/TextView_Title"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:ignore="SmallSp"
+            tools:text="@tools:sample/full_names" />
+
+        <TextView
+            android:id="@+id/TextView_Commentary"
+            translation="@{true}"
+            visible="@{showButton}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/btn_colored_ripple"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:lines="1"
+            android:text="@string/action_view_commentary"
+            android:textColor="?attr/textColorThemeAccent"
+            android:visibility="gone"
+            app:drawableEndCompat="@drawable/ic_keyboard_arrow_right"
+            app:layout_constraintBottom_toBottomOf="@id/ShapeImageView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/TextView_Title"
+            app:layout_constraintTop_toTopOf="@id/ShapeImageView" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,3 @@
+include ':edgeatzero-library'
+include ':app'
+rootProject.name = "Pix-ZeroViewer"

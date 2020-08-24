@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.edgeatzero.library.view.StatusBarTintedLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:statusBarBackgroundColor="?android:attr/colorBackground"
+        tools:context=".ui.search.SearchActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/AppBarLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/colorBackground"
+                app:elevation="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:translationZ="6dp">
+
+                <com.google.android.material.appbar.MaterialToolbar
+                    android:id="@+id/MaterialToolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="0dp"
+                    android:layout_marginEnd="0dp"
+                    android:focusableInTouchMode="true"
+                    android:minHeight="?android:attr/actionBarSize"
+                    app:contentInsetEnd="0dp"
+                    app:contentInsetEndWithActions="0dp"
+                    app:contentInsetStart="0dp"
+                    app:contentInsetStartWithNavigation="0dp"
+                    app:navigationIcon="@drawable/ic_arrow_back">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <EditText
+                            android:id="@+id/EditText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:autofillHints="@null"
+                            android:background="@null"
+                            android:hint="@string/hint_key"
+                            android:imeOptions="actionSearch"
+                            android:inputType="text"
+                            android:paddingEnd="56dp"
+                            android:textSize="16sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/ImageButton_Options"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:ignore="RtlSymmetry" />
+
+                        <ImageButton
+                            android:id="@+id/ImageButton_Clear"
+                            style="?attr/toolbarNavigationButtonStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:alpha="0"
+                            android:contentDescription="@string/description_btn_clear"
+                            android:src="@drawable/ic_clear"
+                            android:visibility="gone"
+                            app:layout_constraintBottom_toBottomOf="@id/EditText"
+                            app:layout_constraintEnd_toEndOf="@id/EditText"
+                            app:layout_constraintTop_toTopOf="@id/EditText"
+                            tools:alpha="1"
+                            tools:visibility="visible" />
+
+                        <ImageButton
+                            android:id="@+id/ImageButton_Options"
+                            style="?attr/toolbarNavigationButtonStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@string/description_btn_options"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/EditText"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:src="@drawable/ic_expand_more" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.appbar.MaterialToolbar>
+
+                <com.edgeatzero.library.view.ExpandableLayout
+                    android:id="@+id/ExpandableLayout_Type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:animationDuration="slowest"
+                    app:expandMode="bottom"
+                    app:expanded="false"
+                    tools:expanded="true">
+
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/TableLayout"
+                        style="@style/AppStyle.TabLayout.Colored"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:minHeight="?android:attr/actionBarSize"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tabMode="auto"
+                        app:tabUnboundedRipple="true">
+
+                        <com.google.android.material.tabs.TabItem
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/title_illustration_or_manga" />
+
+                        <com.google.android.material.tabs.TabItem
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/title_novel" />
+
+                        <com.google.android.material.tabs.TabItem
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/title_user" />
+
+                    </com.google.android.material.tabs.TabLayout>
+
+                </com.edgeatzero.library.view.ExpandableLayout>
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <FrameLayout
+                android:id="@+id/FrameLayout"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/AppBarLayout"
+                tools:visibility="visible">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/RecyclerView_Hot"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    tools:listitem="@layout/layout_illustration_trend"
+                    tools:spanCount="3" />
+
+                <include
+                    android:id="@+id/include"
+                    layout="@layout/layout_response_state"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:visibility="gone" />
+
+            </FrameLayout>
+
+            <androidx.drawerlayout.widget.DrawerLayout
+                android:id="@+id/DrawerLayout"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/AppBarLayout"
+                tools:openDrawer="end"
+                tools:visibility="gone">
+
+                <androidx.coordinatorlayout.widget.CoordinatorLayout
+                    android:id="@+id/CoordinatorLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.fragment.app.FragmentContainerView
+                        android:id="@+id/FragmentContainerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/FloatingActionButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end|bottom"
+                        android:layout_margin="16dp"
+                        android:src="@drawable/ic_keyboard_arrow_up"
+                        android:theme="@style/AppTheme.AppBarOverlay"
+                        app:fabSize="mini"
+                        app:layout_behavior="com.edgeatzero.library.behavior.HideBottomViewOnScrollBehavior"
+                        app:mode="down"
+                        app:tint="@null" />
+
+                </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="end" />
+
+            </androidx.drawerlayout.widget.DrawerLayout>
+
+            <com.edgeatzero.library.view.ExpandableLayout
+                android:id="@+id/ExpandableLayout_Suggestion"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:animationDuration="slowest"
+                app:expandMode="bottom"
+                app:expanded="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/AppBarLayout"
+                tools:expanded="false">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/RecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/secondBackgroundColor"
+                    tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/layout_search_history"
+                    tools:orientation="vertical" />
+
+            </com.edgeatzero.library.view.ExpandableLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.edgeatzero.library.view.StatusBarTintedLayout>
+
+</layout>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ConstraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/ImageView_Ranking"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="4dp"
+            android:contentDescription="@string/description_ranking_icon"
+            app:layout_constraintBottom_toTopOf="@id/RecyclerView"
+            app:layout_constraintEnd_toStartOf="@id/TextView_More"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_ranking" />
+
+        <TextView
+            android:id="@+id/TextView_Ranking"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="@string/string_rank"
+            android:textColor="?android:attr/textColorPrimary"
+            app:layout_constraintBottom_toBottomOf="@+id/ImageView_Ranking"
+            app:layout_constraintEnd_toStartOf="@+id/TextView_More"
+            app:layout_constraintStart_toEndOf="@+id/ImageView_Ranking"
+            app:layout_constraintTop_toTopOf="@+id/ImageView_Ranking" />
+
+        <TextView
+            android:id="@+id/TextView_More"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/btn_colored_ripple"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:lines="1"
+            android:text="@string/action_view_more"
+            android:textColor="?attr/textColorThemeAccent"
+            app:drawableEndCompat="@drawable/ic_keyboard_arrow_right"
+            app:layout_constraintBottom_toBottomOf="@id/ImageView_Ranking"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/ImageView_Ranking" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/RecyclerView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            app:layout_constraintBottom_toTopOf="@id/ImageView_Recommended"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ImageView_Ranking"
+            tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/layout_illustration_small"
+            tools:orientation="horizontal" />
+
+        <ImageView
+            android:id="@+id/ImageView_Recommended"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="8dp"
+            android:contentDescription="@string/description_recommended_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/ImageView_Ranking"
+            app:layout_constraintTop_toBottomOf="@+id/RecyclerView"
+            app:srcCompat="@drawable/ic_recommend" />
+
+        <TextView
+            android:id="@+id/TextView_Recommended"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="@string/string_recommended"
+            android:textColor="?android:attr/textColorPrimary"
+            app:layout_constraintBottom_toBottomOf="@+id/ImageView_Recommended"
+            app:layout_constraintEnd_toEndOf="@id/TextView_More"
+            app:layout_constraintStart_toEndOf="@+id/ImageView_Recommended"
+            app:layout_constraintTop_toTopOf="@+id/ImageView_Recommended" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

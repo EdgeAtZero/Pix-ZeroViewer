@@ -1,0 +1,100 @@
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="PrivateResource">
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:windowAllowEnterTransitionOverlap">true</item>
+        <item name="android:windowAllowReturnTransitionOverlap">true</item>
+
+        <item name="dialogCornerRadius">@dimen/dialog_corner_radius</item>
+        <item name="md_corner_radius">@dimen/dialog_corner_radius</item>
+
+        <item name="filter_divider">?dividerVertical</item>
+
+        <item name="colorControlNormalInverse">@color/colorControlNormalInverse</item>
+        <item name="colorBackgroundInverse">@color/colorBackgroundInverse</item>
+
+        <item name="textColorThemePrimary">@color/text_color_theme_primary</item>
+        <item name="textColorThemePrimaryInverse">@color/text_color_theme_primary_inverse</item>
+        <item name="textColorThemeAccent">@color/tex_color_theme_accent</item>
+        <item name="textColorThemeAccentInverse">@color/text_color_theme_accent_inverse</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar">
+        <item name="tabStyle">@style/AppStyle.TabLayout</item>
+        <item name="colorControlNormal">?android:attr/textColorPrimary</item>
+        <item name="colorControlHighlight">@color/ripple_material_light</item>
+        <item name="colorButtonNormal">@color/button_material_light</item>
+        <item name="colorSwitchThumbNormal">@color/switch_thumb_material_light</item>
+    </style>
+
+    <style name="AppStyle.CardView" parent="Widget.MaterialComponents.CardView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:backgroundTint">?android:attr/colorBackground</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+        <item name="android:stateListAnimator">@animator/elevation</item>
+        <item name="cardCornerRadius">@dimen/cardview_corner_radius_common</item>
+        <item name="cardElevation">0dp</item>
+    </style>
+
+    <style name="AppStyle.CardView.Novel" parent="AppStyle.CardView">
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+
+    <style name="AppStyle.CardView.Small" parent="AppStyle.CardView">
+        <item name="android:layout_width">@dimen/cardview_small_size</item>
+        <item name="android:layout_height">@dimen/cardview_small_size</item>
+    </style>
+
+    <style name="AppStyle.CardView.NoRadius" parent="AppStyle.CardView">
+        <item name="cardCornerRadius">0dp</item>
+    </style>
+
+    <style name="AppStyle.TabLayout" parent="Widget.MaterialComponents.TabLayout">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="tabIconTint">?android:attr/textColorPrimary</item>
+        <item name="tabIndicatorFullWidth">false</item>
+        <item name="tabIndicatorColor">?android:attr/textColorPrimary</item>
+        <item name="tabRippleColor">?android:attr/colorControlHighlight</item>
+        <item name="tabSelectedTextColor">?android:attr/textColorPrimary</item>
+        <item name="tabTextColor">?android:attr/textColorSecondary</item>
+        <item name="tabUnboundedRipple">false</item>
+    </style>
+
+    <style name="AppStyle.TabLayout.Colored" parent="AppStyle.TabLayout">
+        <item name="tabIconTint">?attr/textColorThemePrimary</item>
+        <item name="tabIndicatorColor">?attr/textColorThemePrimary</item>
+        <item name="tabSelectedTextColor">?attr/textColorThemePrimary</item>
+        <item name="tabTextColor">?android:attr/textColorSecondary</item>
+    </style>
+
+    <style name="AppStyle.TextView" parent="Widget.MaterialComponents.TextView" />
+
+    <style name="AppStyle.TextView.Float" parent="AppStyle.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/bg_float</item>
+        <item name="android:lines">1</item>
+        <item name="android:paddingHorizontal" tools:ignore="NewApi">4dp</item>
+        <item name="android:paddingVertical" tools:ignore="NewApi">2dp</item>
+        <item name="android:textColor">@color/abc_primary_text_material_dark</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="AppTheme.Inverse" parent="ThemeOverlay.MaterialComponents.Dark">
+        <item name="dialogCornerRadius">@dimen/dialog_corner_radius</item>
+        <item name="md_corner_radius">@dimen/dialog_corner_radius</item>
+
+        <item name="colorControlNormalInverse">@color/colorControlNormalInverse</item>
+        <item name="colorBackgroundInverse">@color/colorBackgroundInverse</item>
+
+        <item name="textColorThemeAccent">@color/tex_color_theme_accent</item>
+        <item name="textColorThemeAccentInverse">@color/text_color_theme_accent_inverse</item>
+    </style>
+
+</resources>

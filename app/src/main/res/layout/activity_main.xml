@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/DrawerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.main.MainActivity"
+        tools:openDrawer="start">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/ViewPager"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@id/AnimatedBottomBar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </androidx.viewpager.widget.ViewPager>
+
+            <nl.joery.animatedbottombar.AnimatedBottomBar
+                android:id="@+id/AnimatedBottomBar"
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/actionBarSize"
+                android:layout_gravity="bottom"
+                android:background="?android:attr/windowBackground"
+                android:elevation="8dp"
+                app:abb_indicatorAppearance="round"
+                app:abb_indicatorHeight="4dp"
+                app:abb_indicatorLocation="bottom"
+                app:abb_indicatorMargin="16dp"
+                app:abb_rippleEnabled="true"
+                app:abb_selectedIndex="0"
+                app:abb_selectedTabType="text"
+                app:abb_tabs="@menu/bottom_main"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/NavigationView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true"
+            app:insetForeground="@android:color/transparent"
+            app:menu="@menu/navigation_main"
+            tools:headerLayout="@layout/navigation_head_main" />
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+
+</layout>

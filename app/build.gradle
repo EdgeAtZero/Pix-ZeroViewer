@@ -1,0 +1,217 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "30.0.0"
+
+    defaultConfig {
+        applicationId "com.edgeatzero.projects.pixiv"
+        minSdkVersion 21
+        //noinspection OldTargetApi
+        targetSdkVersion 29
+        versionCode 1
+        versionName "bate 1.0"
+
+        multiDexEnabled true
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildFeatures {
+        dataBinding = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+        freeCompilerArgs += ["-Xopt-in=kotlin.RequiresOptIn"]
+    }
+
+    packagingOptions {
+        exclude 'META-INF/AL2.0'
+        exclude 'META-INF/LGPL2.1'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation project(path: ':edgeatzero-library')
+
+    //Kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+
+    //Kotlin Coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.3.9'
+
+    //Activity
+    implementation 'androidx.activity:activity-ktx:1.1.0'
+
+    //Core
+    implementation 'androidx.core:core-ktx:1.3.1'
+
+    //Arch Core
+    implementation 'androidx.arch.core:core-runtime:2.1.0'
+    implementation 'androidx.arch.core:core-testing:2.1.0'
+
+    //Annotation
+    implementation 'androidx.annotation:annotation:1.1.0'
+
+    //Palette
+    implementation 'androidx.palette:palette:1.0.0'
+
+    //AppCompat
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+
+    //SwipereFreshLayout
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+
+    //ViewPager2
+    implementation 'androidx.viewpager2:viewpager2:1.1.0-alpha01'
+
+    //RecyclerView
+    implementation 'androidx.recyclerview:recyclerview:1.2.0-alpha05'
+
+    //HtmlVIew
+    implementation 'org.sufficientlysecure:html-textview:3.9'
+
+    //PhotoView
+    implementation 'com.github.chrisbanes:PhotoView:2.3.0'
+
+    //RecyclerView Animators
+    implementation 'jp.wasabeef:recyclerview-animators:3.0.0'
+
+    //CardView
+    implementation 'androidx.cardview:cardview:1.0.0'
+
+    //ConstraintLayout
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0'
+
+    //ConsecutiveScrollerLayout
+    implementation 'com.github.donkingliang:ConsecutiveScroller:4.0.1'
+
+    //Fragment
+    implementation 'androidx.fragment:fragment:1.2.5'
+    implementation 'androidx.fragment:fragment-ktx:1.2.5'
+    implementation "androidx.navigation:navigation-runtime-ktx:2.3.0"
+    implementation 'androidx.navigation:navigation-fragment:2.3.0'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.0'
+    implementation 'androidx.navigation:navigation-ui:2.3.0'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    //Glide
+    kapt 'com.github.bumptech.glide:compiler:4.11.0'
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    implementation 'com.github.bumptech.glide:okhttp3-integration:4.11.0'
+
+    //OkHttp
+    implementation 'com.squareup.okhttp3:okhttp:4.8.1' /*4.4.6*/
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.8.1'
+
+    //LifeCycle
+    implementation 'androidx.lifecycle:lifecycle-runtime:2.2.0'//
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-common-java8:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0'
+
+    //WorkManager
+//    implementation 'implementation "androidx.work:work-runtime-ktx:2.3.4"'
+
+    //Preference
+    implementation 'androidx.preference:preference-ktx:1.1.1'
+
+    //Room
+    kapt 'androidx.room:room-compiler:2.3.0-alpha02'
+    implementation 'androidx.room:room-runtime:2.3.0-alpha02'
+    implementation 'androidx.room:room-ktx:2.3.0-alpha02'
+    testImplementation 'androidx.room:room-testing:2.3.0-alpha02'
+
+    //Paging
+    implementation 'androidx.paging:paging-runtime:2.1.2'
+    implementation 'androidx.paging:paging-runtime-ktx:2.1.2'
+
+    //Material
+    implementation 'com.google.android.material:material:1.3.0-alpha02'
+
+    //Flex Box
+    implementation 'com.google.android:flexbox:2.0.1'
+
+    //GSON
+    implementation 'com.google.code.gson:gson:2.8.6'
+
+    //PanelSwitchHelper
+    implementation 'com.effective.android:panelSwitchHelper-androidx:1.3.6'
+
+    //Stetho
+    implementation 'com.facebook.stetho:stetho:1.5.1'
+    implementation 'com.facebook.stetho:stetho-okhttp3:1.5.1'
+//    implementation 'com.facebook.stetho:stetho-js-rhino:1.5.1'
+
+    //Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+    //EventBus
+    implementation 'org.greenrobot:eventbus:3.2.0'
+
+    //Animated Bottom Bar
+    implementation 'nl.joery.animatedbottombar:library:1.0.8'
+
+    //Material ProgressBar
+    implementation 'me.zhanghai.android.materialprogressbar:library:1.6.1'
+
+    //Material Dialogs
+    implementation 'com.afollestad.material-dialogs:core:3.3.0'
+    implementation 'com.afollestad.material-dialogs:input:3.3.0'
+//    implementation 'com.afollestad.material-dialogs:files:3.3.0'
+//    implementation 'com.afollestad.material-dialogs:color:3.3.0'
+    implementation 'com.afollestad.material-dialogs:datetime:3.3.0'
+//    implementation 'com.afollestad.material-dialogs:bottomsheets:3.3.0'
+    implementation 'com.afollestad.material-dialogs:lifecycle:3.3.0'
+
+    //Material Color
+    implementation 'com.zzhoujay.materialcolors:materialcolors:1.0.0'
+
+    //Timber
+    implementation 'com.jakewharton.timber:timber:4.7.1'
+
+    //Anko
+    implementation 'org.jetbrains.anko:anko-common:0.10.8'
+    implementation 'org.jetbrains.anko:anko-coroutines:0.10.8'
+    implementation 'org.jetbrains.anko:anko-design:0.10.8'
+
+    //Kodein
+    implementation 'org.kodein.di:kodein-di-generic-jvm:6.0.1'
+    implementation 'org.kodein.di:kodein-di-framework-android-core:6.0.1'
+    implementation 'org.kodein.di:kodein-di-framework-android-x:6.0.1'
+
+    testImplementation 'junit:junit:4.13'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}

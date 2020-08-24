@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Widget.StatusBarTintedLayout" parent="android:Widget">
+        <item name="statusBarBackgroundColor">?android:attr/colorPrimary</item>
+        <item name="enableStatusBarMargin">false</item>
+    </style>
+
+    <!--    <style name="Widget.ShapeButton" parent="Widget.AppCompat.Button">-->
+    <!--        <item name="android:minHeight">88dip</item>-->
+    <!--        <item name="android:minWidth">88dip</item>-->
+    <!--        <item name="android:paddingLeft">@dimen/ShapeButton_Button_padding_left</item>-->
+    <!--        <item name="android:paddingTop">@dimen/ShapeButton_Button_padding_top</item>-->
+    <!--        <item name="android:paddingRight">@dimen/ShapeButton_Button_padding_right</item>-->
+    <!--        <item name="android:paddingBottom">@dimen/ShapeButton_Button_padding_bottom</item>-->
+    <!--        <item name="android:drawablePadding">0dp</item>-->
+    <!--        <item name="android:gravity">center_vertical|center_horizontal</item>-->
+    <!--        <item name="android:elevation" tools:ignore="NewApi">@dimen/ShapeButton_elevation_click</item>-->
+    <!--    </style>-->
+
+    <style name="WidgetStyle.ShapeButton" parent="Widget.AppCompat.TextView">
+        <item name="android:minHeight">88dip</item>
+        <item name="android:minWidth">88dip</item>
+        <item name="android:paddingLeft">@dimen/ShapeButton_Button_padding_left</item>
+        <item name="android:paddingTop">@dimen/ShapeButton_Button_padding_top</item>
+        <item name="android:paddingRight">@dimen/ShapeButton_Button_padding_right</item>
+        <item name="android:paddingBottom">@dimen/ShapeButton_Button_padding_bottom</item>
+        <item name="android:drawablePadding">0dp</item>
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="android:elevation" tools:ignore="NewApi">@dimen/ShapeButton_elevation_click
+        </item>
+    </style>
+
+    <style name="WidgetStyle.FloatingActionsMenuLayout.LabelStyle" parent="Widget.AppCompat.TextView">
+        <item name="android:background">@color/FloatingActionsMenuLayoutLabelStyle_background</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:lines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <!--    <style name="Widget.FloatingActionsMenuButton" parent="android:Widget.View">-->
+    <!--        <item name="android:minHeight">88dip</item>-->
+    <!--        <item name="android:minWidth">88dip</item>-->
+    <!--        <item name="android:paddingLeft">@dimen/ShapeButton_Button_padding_left</item>-->
+    <!--        <item name="android:paddingTop">@dimen/ShapeButton_Button_padding_top</item>-->
+    <!--        <item name="android:paddingRight">@dimen/ShapeButton_Button_padding_right</item>-->
+    <!--        <item name="android:paddingBottom">@dimen/ShapeButton_Button_padding_bottom</item>-->
+    <!--        <item name="android:drawablePadding">0dp</item>-->
+    <!--        <item name="android:gravity">center_vertical|center_horizontal</item>-->
+    <!--        <item name="android:elevation" tools:ignore="NewApi">@dimen/ShapeButton_elevation_click</item>-->
+    <!--    </style>-->
+    <!--    <style name="Base.Widget.ShapeButton" parent="android:Widget">-->
+
+    <!--    </style>-->
+
+</resources>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ConstraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:context=".ui.splash.SplashActivity">
+
+        <TextView
+            android:id="@+id/TextView_ApplicationName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:text="@string/app_name"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/ImageView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/ImageView"
+            app:layout_constraintTop_toTopOf="@+id/ImageView"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/TextView_Version"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:text="@{com.edgeatzero.projects.pixiv.BuildConfig.VERSION_NAME}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="?android:attr/textColorSecondary"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ImageView"
+            app:layout_constraintTop_toBottomOf="@id/TextView_ApplicationName"
+            tools:text="Version"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/ImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/description_app_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/TextView_ApplicationName"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.90"
+            app:srcCompat="@mipmap/ic_launcher" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

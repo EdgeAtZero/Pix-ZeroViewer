@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="state"
+            type="com.edgeatzero.library.model.ResponseState" />
+
+        <variable
+            name="retry"
+            type="kotlin.jvm.functions.Function0&lt;kotlin.Unit>" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/ImageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="@{!state.failed}"
+            android:contentDescription="@string/description_illustration"
+            android:focusable="true"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+        <include
+            android:id="@+id/include"
+            layout="@layout/layout_response_state"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:theme="@style/AppTheme.AppBarOverlay"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:retry="@{retry}"
+            app:state="@{state}"
+            tools:ignore="UnusedAttribute" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

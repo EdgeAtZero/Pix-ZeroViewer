@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.edgeatzero.projects.pixiv.model.UserPreview" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView style="@style/AppStyle.CardView">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ImageView_1"
+                url="@{data.safeGetUrl(0)}"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:contentDescription="@string/description_illustration"
+                android:scaleType="centerCrop"
+                android:transitionName="picture"
+                app:layout_constraintBottom_toBottomOf="@id/ImageView_2"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toStartOf="@id/ImageView_2"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/ImageView_2"
+                tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+            <ImageView
+                android:id="@+id/ImageView_2"
+                url="@{data.safeGetUrl(1)}"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="28dp"
+                android:contentDescription="@string/description_illustration"
+                android:scaleType="centerCrop"
+                android:transitionName="picture"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toStartOf="@id/ImageView_3"
+                app:layout_constraintStart_toEndOf="@id/ImageView_1"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+            <ImageView
+                android:id="@+id/ImageView_3"
+                url="@{data.safeGetUrl(2)}"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:contentDescription="@string/description_illustration"
+                android:scaleType="centerCrop"
+                android:transitionName="picture"
+                app:layout_constraintBottom_toBottomOf="@id/ImageView_2"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ImageView_2"
+                app:layout_constraintTop_toTopOf="@id/ImageView_2"
+                tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+            <com.edgeatzero.library.view.ShapeImageView
+                android:id="@+id/ShapeImageView"
+                url="@{data.user.headPicture}"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="8dp"
+                android:contentDescription="@string/description_head_picture"
+                android:scaleType="centerCrop"
+                android:translationZ="6dp"
+                app:circle="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:src="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/TextView_Author"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:ellipsize="end"
+                android:lines="1"
+                android:text="@{data.user.name}"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@id/ShapeImageView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ShapeImageView"
+                app:layout_constraintTop_toBottomOf="@id/ImageView_2"
+                tools:text="@tools:sample/full_names" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="commentary"
+            type="com.edgeatzero.projects.pixiv.model.Commentary" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="8dp"
+        tools:ignore="UnusedAttribute">
+
+        <com.edgeatzero.library.view.ShapeImageView
+            android:id="@+id/ShapeImageView"
+            url="@{commentary.headPicture}"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:contentDescription="@string/description_head_picture"
+            android:scaleType="centerCrop"
+            app:circle="true"
+            app:layout_constraintBottom_toTopOf="@id/TextView_Commentary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/TextView_Author"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="@{commentary.author}"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@id/TextView_Date"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ShapeImageView"
+            app:layout_constraintTop_toTopOf="@id/ShapeImageView"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="@tools:sample/lorem" />
+
+        <TextView
+            android:id="@+id/TextView_Date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{commentary.date}"
+            android:textColor="?android:attr/textColorSecondary"
+            android:textSize="8sp"
+            app:layout_constraintBottom_toBottomOf="@id/ShapeImageView"
+            app:layout_constraintEnd_toEndOf="@id/TextView_Author"
+            app:layout_constraintStart_toStartOf="@id/TextView_Author"
+            app:layout_constraintTop_toBottomOf="@id/TextView_Author"
+            tools:ignore="SmallSp"
+            tools:text="@tools:sample/date/hhmmss" />
+
+        <TextView
+            android:id="@+id/TextView_Commentary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="4dp"
+            android:text="@{commentary.comment}"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@id/TextView_Reply"
+            app:layout_constraintEnd_toEndOf="@id/TextView_Author"
+            app:layout_constraintStart_toStartOf="@id/ShapeImageView"
+            app:layout_constraintTop_toBottomOf="@id/ShapeImageView"
+            app:layout_goneMarginBottom="0dp"
+            tools:text="@tools:sample/lorem" />
+
+        <TextView
+            android:id="@+id/TextView_Reply"
+            visible="@{commentary.hasReplies}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_colored_ripple_no_padding"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="@string/action_view_reply"
+            android:textColor="?attr/textColorThemeAccent"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/ShapeImageView"
+            tools:visibility="gone" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

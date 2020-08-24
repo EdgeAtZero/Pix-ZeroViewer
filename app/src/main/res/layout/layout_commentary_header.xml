@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="commentary"
+            type="com.edgeatzero.projects.pixiv.model.Commentary" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/include"
+            layout="@layout/layout_commentary"
+            app:commentary="@{commentary}" />
+
+        <View
+            android:id="@+id/Divider"
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/dividerBackgroundColor" />
+
+        <TextView
+            android:id="@+id/TextView_Replays"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginBottom="4dp"
+            android:gravity="start|center_vertical"
+            android:text="@string/title_replays"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</layout>

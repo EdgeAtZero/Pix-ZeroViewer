@@ -1,0 +1,141 @@
+<resources>
+    <string name="app_name" translatable="false">Pix-ZeroViewer</string>
+
+    <string name="constant_ranking_daily">每日</string>
+    <string name="constant_ranking_daily_r18">R-18 每日</string>
+    <string name="constant_ranking_female">女性热门</string>
+    <string name="constant_ranking_female_r18">R-18 女性热门</string>
+    <string name="constant_ranking_r18g">R-18G</string>
+    <string name="constant_ranking_rookie">新人</string>
+    <string name="constant_ranking_male">男性热门</string>
+    <string name="constant_ranking_male_r18">R-18 男性热门</string>
+    <string name="constant_ranking_original">原创</string>
+    <string name="constant_ranking_monthly">每月</string>
+    <string name="constant_ranking_weekly">每周</string>
+    <string name="constant_ranking_weekly_r18">R-18 每周</string>
+
+    <string name="string_retry">重试</string>
+    <string name="string_no_data">没有数据</string>
+    <string name="string_load_complete">加载完毕</string>
+    <string name="string_following">关注中</string>
+    <string name="string_private">(不公开)</string>
+    <string name="string_recommended">推荐</string>
+    <string name="string_rank">排行榜</string>
+    <string name="string_illustration">插画</string>
+    <string name="string_head_icon">头像</string>
+    <string name="string_select_date">选择日期</string>
+    <string name="string_share">分享</string>
+    <string name="string_text_length">%s 字</string>
+    <string name="string_like">喜欢</string>
+    <string name="string_read">阅读</string>
+
+    <string name="positive_retry">@string/string_retry</string>
+    <string name="positive_ok">确定</string>
+    <string name="positive_add">添加</string>
+
+    <string name="neutral_setting">设置</string>
+
+    <string name="negative_login">登录</string>
+    <string name="negative_close">关闭</string>
+
+    <string name="action_message_success">%s成功</string>
+    <string name="action_message_failed">%s失败: %s</string>
+
+    <string name="action_login_submit">登录 &amp; 注册</string>
+    <string name="action_no_account">没账号?</string>
+    <string name="action_have_account">有账号?</string>
+    <string name="action_follow">关注</string>
+    <string name="action_unfollow">不关注了</string>
+    <string name="action_private">不公开?</string>
+    <string name="action_like">喜欢</string>
+    <string name="action_dislike">不喜欢啦</string>
+    <string name="action_view_more">查看更多</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_revoke">撤销</string>
+    <string name="action_view_reply">查看回复</string>
+    <string name="action_view_commentary">查看评论</string>
+    <string name="action_set_email">绑定邮箱</string>
+    <string name="action_copy">复制</string>
+    <string name="action_translate">翻译</string>
+    <string name="action_clear_histories">删除历史记录</string>
+
+    <string name="tips_cannot_be_empty">不能为空</string>
+    <string name="tips_no_account">没有登录账户!</string>
+    <string name="tips_cannot_be_added_repeatedly">不能重复添加</string>
+
+    <string name="hint_username">Pixiv ID 或邮箱</string>
+    <string name="hint_password">密码</string>
+    <string name="hint_nickname">昵称</string>
+    <string name="hint_content">内容</string>
+    <string name="hint_tag">标签</string>
+    <string name="hint_add_commentary">添加评论</string>
+    <string name="hint_reply_commentary">回复 %s</string>
+    <string name="hint_key">关键字</string>
+
+    <string name="title_illustration">插画</string>
+    <string name="title_manga">漫画</string>
+    <string name="title_illustration_or_manga">插画 • 漫画</string>
+    <string name="title_novel">小说</string>
+    <string name="title_user">用户</string>
+    <string name="title_login">登录</string>
+    <string name="title_commentary">评论</string>
+    <string name="title_recommend">@string/string_recommended</string>
+    <string name="title_register">注册临时账户</string>
+    <string name="title_register_success">请牢记您的账号信息(如果忘记请在账号管理中查看)</string>
+    <string name="title_add_like">添加喜欢</string>
+    <string name="title_add_follow">添加关注</string>
+    <string name="title_tag_add">添加标签</string>
+    <string name="title_ranking">@string/string_rank</string>
+    <string name="title_share">@string/string_share</string>
+    <string name="title_select_date">@string/string_select_date</string>
+    <string name="title_related_illustration">相关插画作品</string>
+    <string name="title_replays">全部回复</string>
+
+    <string name="subtitle_login">请输入您的账号以及密码以继续</string>
+    <string name="subtitle_register">请输入临时账户的昵称以继续</string>
+
+    <string name="message_register">账号: %s\n密码: %s</string>
+    <string name="message_over_range">超出范围! %s - %s</string>
+    <string name="message_can_only_ten_tag">最多只能设置10个标签</string>
+    <string name="message_like_add">添加喜欢</string>
+    <string name="message_like_delete">删除喜欢</string>
+    <string name="message_follow_add">关注</string>
+    <string name="message_follow_delete">取消关注</string>
+    <string name="message_set_email_before_comment">发布评论前需要绑定邮箱哦!(游客毕业)</string>
+    <string name="message_comment_add">发布评论</string>
+    <string name="message_comment_delete">撤销</string>
+    <string name="message_copy_successful">复制成功</string>
+
+    <string name="menu_recommend">推荐</string>
+    <string name="menu_dynamic">动态</string>
+    <string name="menu_shield">屏蔽设置</string>
+    <string name="menu_comment">全部评论</string>
+    <string name="menu_home">个人主页</string>
+    <string name="menu_search">搜索</string>
+    <string name="menu_add">添加</string>
+    <string name="menu_share">@string/string_share</string>
+
+    <string name="description_app_icon">应用图标</string>
+    <string name="description_illustration">插画</string>
+    <string name="description_head_picture">头像</string>
+    <string name="description_ranking_icon">排行榜图标</string>
+    <string name="description_novel_cover">小说封面</string>
+    <string name="description_recommended_icon">推荐图标</string>
+    <string name="description_like_icon">喜欢图标</string>
+    <string name="description_image">图片</string>
+    <string name="description_icon">图标</string>
+    <string name="description_btn_send" >发送</string>
+    <string name="description_btn_emoji" >表情</string>
+    <string name="description_btn_clear" >全部删除</string>
+    <string name="description_btn_options">设置</string>
+
+    <string-array name="list_on_long_click_commentary">
+        <item>@string/action_copy</item>
+        <item>@string/action_translate</item>
+    </string-array>
+
+    <string-array name="list_on_long_click_commentary_exclude_translate">
+        <item>@string/action_copy</item>
+    </string-array>
+
+</resources>

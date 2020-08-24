@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="illustration"
+            type="com.edgeatzero.projects.pixiv.model.Illustration" />
+
+        <variable
+            name="span"
+            type="com.edgeatzero.projects.pixiv.model.Illustration.SpanHolder" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/FlexboxLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="8dp"
+            app:flexDirection="row"
+            app:flexWrap="wrap"
+            app:layout_constraintBottom_toTopOf="@id/RecyclerView_Tag"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/TextView_Date"
+                text="@{illustration.date}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="4dp"
+                android:textColor="?android:attr/textColorTertiary"
+                android:textSize="12sp"
+                tools:text="@tools:sample/date/hhmmss" />
+
+            <TextView
+                android:id="@+id/TextView_View"
+                setMovementMethod="@{true}"
+                text="@{span.view}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="4dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:textColor="?android:attr/textColorTertiary"
+                android:textSize="12sp"
+                tools:text="1000 浏览" />
+
+            <TextView
+                android:id="@+id/TextView_Like"
+                setMovementMethod="@{true}"
+                text="@{span.like}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="4dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:textColor="?android:attr/textColorTertiary"
+                android:textSize="12sp"
+                tools:text="1000 喜欢" />
+
+            <TextView
+                android:id="@+id/TextView_Size"
+                setMovementMethod="@{true}"
+                text="@{span.size}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="4dp"
+                android:textColor="?android:attr/textColorTertiary"
+                android:textSize="12sp"
+                tools:text="1000x1000" />
+
+            <TextView
+                android:id="@+id/TextView_ID"
+                setMovementMethod="@{true}"
+                text="@{span.id}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="4dp"
+                android:textColor="?android:attr/textColorTertiary"
+                android:textIsSelectable="true"
+                android:textSize="12sp"
+                tools:text="ID: 12212121" />
+
+        </com.google.android.flexbox.FlexboxLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/RecyclerView_Tag"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toTopOf="@id/TextView_Caption"
+            app:layout_constraintEnd_toEndOf="@id/FlexboxLayout"
+            app:layout_constraintStart_toStartOf="@id/FlexboxLayout"
+            app:layout_constraintTop_toBottomOf="@id/FlexboxLayout"
+            app:layout_goneMarginBottom="8dp"
+            tools:itemCount="5"
+            tools:layoutManager="com.google.android.flexbox.FlexboxLayoutManager"
+            tools:listitem="@layout/layout_tag_common"
+            tools:orientation="horizontal" />
+
+        <org.sufficientlysecure.htmltextview.HtmlTextView
+            android:id="@+id/TextView_Caption"
+            html="@{illustration.caption}"
+            translation="@{true}"
+            visible="@{!illustration.captionBlank}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:textColor="?android:attr/textColorSecondary"
+            android:textIsSelectable="true"
+            app:layout_constraintBottom_toTopOf="@id/Divider"
+            app:layout_constraintEnd_toEndOf="@id/FlexboxLayout"
+            app:layout_constraintStart_toStartOf="@id/FlexboxLayout"
+            app:layout_constraintTop_toBottomOf="@id/RecyclerView_Tag"
+            tools:text="@tools:sample/lorem"
+            tools:visibility="visible" />
+
+        <View
+            android:id="@+id/Divider"
+            android:layout_width="0dp"
+            android:layout_height="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/dividerBackgroundColor"
+            app:layout_constraintBottom_toTopOf="@id/TextView_Related"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/TextView_Caption" />
+
+        <TextView
+            android:id="@+id/TextView_Related"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@string/title_related_illustration"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/Divider" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="state"
+            type="com.edgeatzero.library.model.State" />
+
+        <variable
+            name="src"
+            type="android.graphics.drawable.Drawable" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ConstraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/btn_colored_ripple_border_less"
+        android:clickable="@{!state.loading}"
+        android:focusable="true">
+
+        <me.zhanghai.android.materialprogressbar.MaterialProgressBar
+            android:id="@+id/MaterialProgressBar"
+            invisible="@{state.loading}"
+            translation="@{true}"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:indeterminate="true"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@id/ImageView"
+            app:layout_constraintEnd_toEndOf="@id/ImageView"
+            app:layout_constraintStart_toStartOf="@id/ImageView"
+            app:layout_constraintTop_toTopOf="@id/ImageView"
+            app:mpb_progressStyle="circular" />
+
+        <ImageView
+            android:id="@+id/ImageView"
+            invisible="@{!state.loading}"
+            translation="@{true}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/description_like_icon"
+            android:src="@{src}"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_like_2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

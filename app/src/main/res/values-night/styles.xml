@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="PrivateResource">
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar">
+        <item name="tabStyle">@style/AppStyle.TabLayout</item>
+        <item name="colorControlNormal">?android:attr/textColorPrimary</item>
+        <item name="colorControlHighlight">@color/ripple_material_dark</item>
+        <item name="colorButtonNormal">@color/button_material_dark</item>
+        <item name="colorSwitchThumbNormal">@color/switch_thumb_material_dark</item>
+    </style>
+
+    <style name="AppTheme.Inverse" parent="ThemeOverlay.MaterialComponents.Light" >
+        <item name="dialogCornerRadius">@dimen/dialog_corner_radius</item>
+        <item name="md_corner_radius">@dimen/dialog_corner_radius</item>
+
+        <item name="colorControlNormalInverse">@color/colorControlNormalInverse</item>
+        <item name="colorBackgroundInverse">@color/colorBackgroundInverse</item>
+
+        <item name="textColorThemeAccent">@color/tex_color_theme_accent</item>
+        <item name="textColorThemeAccentInverse">@color/text_color_theme_accent_inverse</item>
+    </style>
+
+</resources>

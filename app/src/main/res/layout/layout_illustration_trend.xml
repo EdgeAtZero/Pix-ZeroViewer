@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="PrivateResource">
+
+    <data>
+
+        <variable
+            name="first"
+            type="Boolean" />
+
+        <variable
+            name="data"
+            type="com.edgeatzero.projects.pixiv.model.TrendTag" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView style="@style/AppStyle.CardView.NoRadius">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ImageView"
+                url="@{data.illust.url}"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:contentDescription="@string/string_illustration"
+                android:foreground="@drawable/shadow_bottom"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="UnusedAttribute"
+                tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+            <TextView
+                android:id="@+id/TextView_Title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:lines="1"
+                android:shadowColor="@color/material_black"
+                android:shadowDx="1.5"
+                android:shadowDy="1.5"
+                android:shadowRadius="1.5"
+                android:text='@{"#" + data.tag}'
+                android:textColor="@color/abc_primary_text_material_dark"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@id/TextView_Translate"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1"
+                app:layout_constraintVertical_chainStyle="packed"
+                app:layout_goneMarginBottom="16dp"
+                tools:text="@tools:sample/lorem" />
+
+            <TextView
+                android:id="@+id/TextView_Translate"
+                visible="@{data.hasTranslatedName}"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:lines="1"
+                android:shadowColor="@color/material_black"
+                android:shadowDx="1.5"
+                android:shadowDy="1.5"
+                android:shadowRadius="1.5"
+                android:text="@{data.translatedName}"
+                android:textColor="@color/abc_secondary_text_material_dark"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/TextView_Title"
+                app:layout_constraintStart_toStartOf="@id/TextView_Title"
+                app:layout_constraintTop_toBottomOf="@id/TextView_Title"
+                tools:text="@tools:sample/lorem" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="loading"
+            type="Boolean" />
+
+        <variable
+            name="illustration"
+            type="com.edgeatzero.projects.pixiv.model.Illustration" />
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/CoordinatorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/material_black">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/RecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="67dp"
+            tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/layout_illustration_single" />
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/Toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:fitsSystemWindows="true"
+            android:minHeight="?android:attr/actionBarSize"
+            android:theme="@style/AppTheme.AppBarOverlay"
+            app:menu="@menu/menu_illustration_detail"
+            app:navigationIcon="@drawable/ic_arrow_back"
+            app:title="@null" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/RecyclerView_Bottom"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?android:attr/colorBackground"
+            android:elevation="6dp"
+            android:orientation="vertical"
+            app:behavior_peekHeight="67dp"
+            app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+            app:layout_behavior="@string/bottom_sheet_behavior"
+            tools:itemCount="1"
+            tools:listitem="@layout/layout_illustration_detail_user" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/FloatingActionButton_TOP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_keyboard_arrow_up"
+            android:theme="@style/AppTheme.AppBarOverlay"
+            app:elevation="12dp"
+            app:fabSize="mini"
+            app:layout_behavior="com.edgeatzero.library.behavior.HideBottomViewOnScrollBehavior"
+            app:mode="down"
+            app:target="@id/RecyclerView_Bottom"
+            app:tint="@null" />
+
+        <me.zhanghai.android.materialprogressbar.MaterialProgressBar
+            android:id="@+id/MaterialProgressBar"
+            invisible="@{loading}"
+            translation="@{true}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="10dp"
+            android:visibility="invisible"
+            app:layout_anchor="@id/FloatingActionButton"
+            app:layout_anchorGravity="center" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/FloatingActionButton"
+            invisible="@{!loading}"
+            translation="@{true}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:src="@{illustration.liked ? @drawable/ic_like : @drawable/ic_like_2}"
+            android:theme="@style/AppTheme.AppBarOverlay"
+            app:elevation="12dp"
+            app:layout_anchor="@id/RecyclerView_Bottom"
+            app:layout_anchorGravity="end"
+            app:tint="@null"
+            tools:src="@drawable/ic_like" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

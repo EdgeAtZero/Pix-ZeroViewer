@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="state"
+            type="com.edgeatzero.library.model.LoadState" />
+
+        <variable
+            name="retry"
+            type="kotlin.jvm.functions.Function0&lt;kotlin.Unit>" />
+
+        <variable
+            name="empty"
+            type="Integer" />
+
+        <variable
+            name="complete"
+            type="Integer" />
+
+        <variable
+            name="showInitialLoad"
+            type="Boolean" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ConstraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <me.zhanghai.android.materialprogressbar.MaterialProgressBar
+            android:id="@+id/ProgressBar"
+            translation="@{true}"
+            visible="@{showInitialLoad ? state.initialLoading | state.loading : state.loading}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:indeterminate="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:mpb_progressStyle="circular"
+            tools:visibility="gone" />
+
+        <TextView
+            android:id="@+id/TextView_Message"
+            translation="@{true}"
+            visible="@{state.error}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="3"
+            android:text="@{state.message}"
+            android:textColor="?attr/colorError"
+            android:textIsSelectable="true"
+            android:textSize="14sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/Button_Retry"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="Message"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/Button_Retry"
+            translation="@{true}"
+            visible="@{state.error}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/btn_colored_ripple"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:onClick="@{() -> retry.invoke()}"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="6dp"
+            android:text="@string/string_retry"
+            android:textColor="?attr/textColorThemeAccent"
+            android:textSize="16sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TextView_Message"
+            tools:visibility="visible" />
+
+        <TextView
+            translation="@{true}"
+            visible="@{state.empty}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{empty == null ? @string/string_no_data : context.getString(empty)}"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textSize="14sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/string_no_data"
+            tools:visibility="gone" />
+
+        <TextView
+            translation="@{true}"
+            visible="@{state.complete}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{complete == null ? @string/string_load_complete : context.getString(complete)}"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textSize="14sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/string_load_complete"
+            tools:visibility="gone" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

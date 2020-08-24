@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="PrivateResource">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.edgeatzero.projects.pixiv.ui.image.ImageDetailViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/material_black">
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/ViewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ui.image.ImageDetailActivity">
+
+        </androidx.viewpager.widget.ViewPager>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:gravity="center"
+            android:text='@{(model.currentItem + 1) + "/" + model.urls.size()}'
+            android:textColor="?android:attr/textColorPrimary"
+            android:textSize="16sp"
+            android:theme="@style/AppTheme.AppBarOverlay"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="1/1" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

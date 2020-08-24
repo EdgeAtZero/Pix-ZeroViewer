@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.edgeatzero.projects.pixiv.ui.login.LoginViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ConstraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/TextView_Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:gravity="center"
+            android:text="@string/title_register"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.075" />
+
+        <TextView
+            android:id="@+id/TextView_SubTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="@string/subtitle_register"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+            android:textColor="?android:textColorSecondary"
+            app:layout_constraintEnd_toEndOf="@+id/TextView_Title"
+            app:layout_constraintStart_toStartOf="@+id/TextView_Title"
+            app:layout_constraintTop_toBottomOf="@+id/TextView_Title" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/TextInputLayout_Nickname"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:hint="@string/hint_nickname"
+            app:boxBackgroundColor="@android:color/transparent"
+            app:errorEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TextView_SubTitle">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/TextInputEditText_Nickname"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:lines="1" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/Button_Register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_colored_ripple_border_less"
+            android:enabled="@{!model.state.loading}"
+            android:paddingHorizontal="4dp"
+            android:text="@string/action_have_account"
+            android:textColor="?attr/textColorThemeAccent"
+            app:layout_constraintEnd_toEndOf="@+id/TextInputLayout_Nickname"
+            app:layout_constraintTop_toBottomOf="@+id/TextInputLayout_Nickname" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

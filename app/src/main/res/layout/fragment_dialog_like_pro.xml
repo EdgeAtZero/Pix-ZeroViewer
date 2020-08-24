@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.edgeatzero.projects.pixiv.ui.like.LikeProViewModel" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            translation="@{true}"
+            visible="@{model.loadState.successful}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
+                android:id="@+id/CoordinatorLayout"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@id/ConstraintLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.appbar.AppBarLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?android:attr/colorPrimary"
+                    android:theme="@style/AppTheme.AppBarOverlay">
+
+                    <com.google.android.material.appbar.MaterialToolbar
+                        android:id="@+id/MaterialToolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="?android:attr/actionBarSize"
+                        app:layout_scrollFlags="scroll|enterAlways"
+                        app:navigationIcon="@drawable/ic_arrow_back"
+                        app:title="@{model.isUser() ? @string/title_add_follow : @string/title_add_like}"
+                        tools:title="@string/title_add_like">
+
+                        <TextView
+                            visible="@{!model.isUser()}"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end|center_vertical"
+                            android:layout_marginEnd="16dp"
+                            android:text="@{model.text}"
+                            android:textColor="?android:attr/textColorPrimary"
+                            android:textSize="16sp"
+                            tools:text="0 / 10" />
+
+                    </com.google.android.material.appbar.MaterialToolbar>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        visible="@{!model.isUser()}"
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        app:layout_scrollFlags="noScroll">
+
+                        <EditText
+                            android:id="@+id/EditText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:background="@null"
+                            android:hint="@string/hint_tag"
+                            android:imeOptions="actionDone"
+                            android:importantForAutofill="no"
+                            android:inputType="text"
+                            android:lines="1"
+                            android:selectAllOnFocus="true"
+                            android:textColor="?android:attr/textColorPrimary"
+                            android:textColorHint="?android:attr/textColorSecondary"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/ImageButton"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageButton
+                            android:id="@+id/ImageButton"
+                            style="?toolbarNavigationButtonStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="@string/menu_add"
+                            android:enabled="@{!model.likeState.loading}"
+                            android:src="@drawable/ic_add"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/EditText"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.appbar.AppBarLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/RecyclerView"
+                    visible="@{!model.isUser()}"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scrollbars="vertical"
+                    app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+                    tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/layout_tag_select"
+                    tools:orientation="vertical" />
+
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/ConstraintLayout"
+                android:layout_width="0dp"
+                android:layout_height="?android:attr/actionBarSize"
+                android:background="?android:attr/colorBackground"
+                android:clickable="true"
+                android:elevation="4dp"
+                android:focusable="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/CoordinatorLayout">
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:checked="@{model.isPrivate()}"
+                    android:enabled="@{!model.likeState.loading}"
+                    android:onClick="@{() -> model.toggleRestrict()}"
+                    android:switchPadding="8dp"
+                    android:text="@string/action_private"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <me.zhanghai.android.materialprogressbar.MaterialProgressBar
+                    visible="@{model.likeState.loading}"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="8dp"
+                    android:indeterminate="true"
+                    app:layout_constraintBottom_toBottomOf="@id/TextView_Like"
+                    app:layout_constraintDimensionRatio="W,1:1"
+                    app:layout_constraintEnd_toStartOf="@id/TextView_Dislike"
+                    app:layout_constraintTop_toTopOf="@id/TextView_Like"
+                    app:mpb_progressStyle="circular"
+                    tools:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/TextView_Dislike"
+                    visible="@{model.liked}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/btn_colored_ripple"
+                    android:clickable="true"
+                    android:enabled="@{!model.likeState.loading}"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:onClick="@{() -> model.action(false)}"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="6dp"
+                    android:text="@{model.isUser() ? @string/action_unfollow : @string/action_dislike}"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/TextView_Like"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="@string/action_dislike" />
+
+                <TextView
+                    android:id="@+id/TextView_Like"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/btn_colored_ripple"
+                    android:clickable="true"
+                    android:enabled="@{!model.likeState.loading}"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:onClick="@{() -> model.action(true)}"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="6dp"
+                    android:text="@{model.isUser() ? @string/action_follow : @string/action_like}"
+                    android:textColor="?attr/textColorThemeAccent"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="@string/action_like" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <FrameLayout
+            visible="@{!model.loadState.successful}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <include
+                layout="@layout/layout_response_state"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:retry="@{model.retry}"
+                app:state="@{model.loadState}"
+                tools:visibility="gone" />
+
+        </FrameLayout>
+
+    </FrameLayout>
+
+</layout>

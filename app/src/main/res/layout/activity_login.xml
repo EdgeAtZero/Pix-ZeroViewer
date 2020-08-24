@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.edgeatzero.projects.pixiv.ui.login.LoginViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <com.edgeatzero.library.view.ScrollableViewPager
+            android:id="@+id/ScrollableViewPager"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:scrollable="@{!model.state.loading}" />
+
+        <me.zhanghai.android.materialprogressbar.MaterialProgressBar
+            android:id="@+id/MaterialProgressBar"
+            style="@style/Widget.MaterialProgressBar.ProgressBar.Horizontal"
+            translation="@{true}"
+            visible="@{model.state.state.loading}"
+            android:layout_width="0dp"
+            android:layout_height="4dp"
+            android:indeterminate="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:mpb_progressStyle="horizontal"
+            app:mpb_useIntrinsicPadding="false"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/Button_Login"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_colored_accent_shape_ripple"
+            android:enabled="@{model.state == null || model.state.failed}"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:gravity="center"
+            android:onClick="@{() -> model.action()}"
+            android:padding="12dp"
+            android:text="@string/action_login_submit"
+            android:textColor="?android:textColorPrimaryInverse"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="UnusedAttribute" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

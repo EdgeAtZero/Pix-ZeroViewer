@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="state"
+            type="com.edgeatzero.library.model.State" />
+
+        <variable
+            name="drawable"
+            type="android.graphics.drawable.Drawable" />
+
+        <variable
+            name="novel"
+            type="com.edgeatzero.projects.pixiv.model.Novel" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView style="@style/AppStyle.CardView.Novel">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ImageView_Ranking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:contentDescription="@string/description_ranking_icon"
+                android:src="@{drawable}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@drawable/ic_ranking_first" />
+
+            <TextView
+                android:id="@+id/TextVIew_Count"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:lines="1"
+                android:text="@{@string/string_text_length(novel.textCount)}"
+                android:textColor="?android:attr/textColorSecondary"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="1.2k 字" />
+
+            <ImageView
+                android:id="@+id/ImageView"
+                url="@{novel.imageUrls.large}"
+                android:layout_width="80dp"
+                android:layout_height="120dp"
+                android:layout_margin="8dp"
+                android:contentDescription="@string/string_head_icon"
+                android:scaleType="centerCrop"
+                android:transitionName="picture"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+            <TextView
+                android:id="@+id/TextView_Subtitle"
+                visible="@{novel.seriesNull}"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:lines="1"
+                android:text="@{novel.series.title}"
+                android:textColor="?android:attr/colorAccent"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ImageView"
+                tools:text="@tools:sample/lorem" />
+
+            <TextView
+                android:id="@+id/TextView_Title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="3"
+                android:text="@{novel.title}"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/TextView_Subtitle"
+                tools:text="@tools:sample/lorem" />
+
+            <com.edgeatzero.library.view.ShapeImageView
+                android:id="@+id/ShapeImageView"
+                url="@{novel.headPicture}"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="8dp"
+                android:scaleType="centerCrop"
+                app:circle="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/TextView_Title"
+                tools:src="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/TextView_Author"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:ellipsize="end"
+                android:lines="1"
+                android:text="@{novel.author}"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toTopOf="@id/TextView_Date"
+                app:layout_constraintEnd_toStartOf="@id/TextView_Like"
+                app:layout_constraintStart_toEndOf="@id/ShapeImageView"
+                app:layout_constraintTop_toTopOf="@id/ShapeImageView"
+                app:layout_constraintVertical_chainStyle="spread"
+                tools:text="@tools:sample/full_names" />
+
+            <TextView
+                android:id="@+id/TextView_Date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:lines="1"
+                android:text="@{novel.date}"
+                android:textColor="?android:attr/textColorSecondary"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="@id/ShapeImageView"
+                app:layout_constraintEnd_toEndOf="@id/TextView_Author"
+                app:layout_constraintStart_toStartOf="@id/TextView_Author"
+                app:layout_constraintTop_toBottomOf="@id/TextView_Author"
+                tools:ignore="SmallSp"
+                tools:text="@tools:sample/date/hhmmss" />
+
+            <TextView
+                android:id="@+id/TextView_Like"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:lines="1"
+                android:text="@{novel.likeCount}"
+                android:textColor="?android:attr/textColorSecondary"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="@id/ShapeImageView"
+                app:layout_constraintEnd_toStartOf="@id/include"
+                app:layout_constraintStart_toEndOf="@id/TextView_Author"
+                app:layout_constraintTop_toTopOf="@id/ShapeImageView"
+                tools:ignore="SmallSp"
+                tools:text="1.07k" />
+
+            <include
+                android:id="@+id/include"
+                layout="@layout/layout_like_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/ShapeImageView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/ShapeImageView"
+                app:src="@{novel.liked ? @drawable/ic_like : @drawable/ic_like_2}"
+                app:state="@{state}" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

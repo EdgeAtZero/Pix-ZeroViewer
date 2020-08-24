@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#03A9F4</color>
+    <color name="colorPrimaryDark">#0288D1</color>
+    <color name="colorAccent">#4CAF50</color>
+    <color name="colorBackground">?android:attr/colorBackground</color>
+    <color name="cardViewBackgroundColor">@color/material_grey_100</color>
+    <color name="colorControlNormalInverse">@color/design_default_color_on_primary</color>
+    <color name="colorBackgroundInverse">@color/design_dark_default_color_background</color>
+    <color name="dividerBackgroundColor">@color/material_grey_100</color>
+    <color name="secondBackgroundColor">#F1F1F1</color>
+    <color name="headPicturePlaceholder">@color/material_grey_200</color>
+    <color name="shadowColor">#66000000</color>
+</resources>

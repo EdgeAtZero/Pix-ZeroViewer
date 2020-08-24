@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="PrivateResource">
+
+    <data>
+
+        <variable
+            name="drawable"
+            type="android.graphics.drawable.Drawable" />
+
+        <variable
+            name="novel"
+            type="com.edgeatzero.projects.pixiv.model.Novel" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView style="@style/AppStyle.CardView.Small">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ConstraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <FrameLayout
+                android:id="@+id/ImageView"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:foreground="@drawable/shadow"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    url="@{novel.imageUrls.large}"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:contentDescription="@string/description_novel_cover"
+                    android:scaleType="centerCrop"
+                    tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+            </FrameLayout>
+
+            <ImageView
+                android:id="@+id/ImageView_Ranking"
+                visible="@{drawable != null}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:contentDescription="@string/description_ranking_icon"
+                android:src="@{drawable}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@drawable/ic_ranking_first" />
+
+            <TextView
+                android:id="@+id/TextVIew_Count"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:lines="1"
+                android:shadowColor="@color/material_black"
+                android:shadowDx="1.5"
+                android:shadowDy="1.5"
+                android:shadowRadius="1.5"
+                android:text="@{@string/string_text_length(novel.textCount)}"
+                android:textColor="@color/abc_secondary_text_material_dark"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="1.2k 字" />
+
+            <TextView
+                android:id="@+id/TextView_Title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginBottom="8dp"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="3"
+                android:shadowColor="@color/material_black"
+                android:shadowDx="1.5"
+                android:shadowDy="1.5"
+                android:shadowRadius="1.5"
+                android:text="@{novel.title}"
+                android:textColor="@color/abc_primary_text_material_dark"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@tools:sample/lorem" />
+
+            <com.edgeatzero.library.view.ShapeImageView
+                android:id="@+id/ShapeImageView_HeadIcon"
+                url="@{novel.user.profileImageUrls.medium}"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="8dp"
+                android:contentDescription="@string/description_head_picture"
+                android:scaleType="centerCrop"
+                app:circle="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:src="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/TextView_Author"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:ellipsize="end"
+                android:lines="1"
+                android:shadowColor="@color/material_black"
+                android:shadowDx="1.5"
+                android:shadowDy="1.5"
+                android:shadowRadius="1.5"
+                android:text="@{novel.author}"
+                android:textColor="@color/abc_secondary_text_material_dark"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="@id/ShapeImageView_HeadIcon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ShapeImageView_HeadIcon"
+                app:layout_constraintTop_toTopOf="@id/ShapeImageView_HeadIcon"
+                tools:ignore="SmallSp"
+                tools:text="@tools:sample/full_names" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

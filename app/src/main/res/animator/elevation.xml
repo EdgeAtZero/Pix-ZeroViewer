@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="PrivateResource">
+    <item
+        android:state_enabled="true"
+        android:state_pressed="true">
+        <objectAnimator
+            android:duration="@android:integer/config_shortAnimTime"
+            android:interpolator="@interpolator/mtrl_fast_out_slow_in"
+            android:propertyName="translationZ"
+            android:valueTo="16dp"
+            android:valueType="floatType" />
+    </item>
+    <item>
+        <objectAnimator
+            android:duration="@android:integer/config_shortAnimTime"
+            android:interpolator="@anim/mtrl_card_lowers_interpolator"
+            android:propertyName="translationZ"
+            android:valueTo="0dp"
+            android:valueType="floatType" />
+    </item>
+</selector>

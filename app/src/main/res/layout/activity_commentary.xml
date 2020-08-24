@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.edgeatzero.projects.pixiv.ui.commentary.CommentaryActivity.ViewModel" />
+
+    </data>
+
+    <com.edgeatzero.library.view.StatusBarTintedLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/AppBarLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/colorPrimary"
+                android:theme="@style/AppTheme.AppBarOverlay"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0">
+
+                <com.google.android.material.appbar.MaterialToolbar
+                    android:id="@+id/MaterialToolbar"
+                    style="@style/Widget.AppCompat.Toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="?android:attr/actionBarSize"
+                    app:navigationIcon="@drawable/ic_arrow_back"
+                    app:title="@string/title_commentary" />
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <com.effective.android.panel.view.PanelSwitchLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                app:animationSpeed="standard"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/AppBarLayout">
+
+                <com.effective.android.panel.view.content.RelativeContentContainer
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    app:relative_auto_reset_enable="true"
+                    app:relative_edit_view="@id/SpanEditText">
+
+                    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                        android:id="@+id/SwipeRefreshLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_above="@+id/ConstraintLayout">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/RecyclerView"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scrollbars="vertical"
+                            tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            tools:listitem="@layout/layout_commentary" />
+
+                    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/ConstraintLayout_Info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@id/ConstraintLayout"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/TextVIew"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:background="@drawable/bg_input_commentary"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:gravity="center"
+                            android:paddingHorizontal="12dp"
+                            android:paddingVertical="8dp"
+                            android:text='@{model.comment.length() + " / " + model.maxLength}'
+                            android:textColor="?android:attr/textColorSecondary"
+                            android:textSize="12sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/ImageButton_Emoji"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:text="0 / 140" />
+
+                        <ImageButton
+                            android:id="@+id/ImageButton_Emoji"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_marginEnd="4dp"
+                            android:background="@drawable/bg_input_options"
+                            android:contentDescription="@string/description_btn_emoji"
+                            android:padding="8dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintDimensionRatio="1:1"
+                            app:layout_constraintEnd_toStartOf="@id/ImageButton_Clear"
+                            app:layout_constraintStart_toEndOf="@id/TextVIew"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:tint="?android:attr/textColorPrimary"
+                            tools:src="@drawable/ic_emoji_emotions" />
+
+                        <ImageButton
+                            android:id="@+id/ImageButton_Clear"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_marginEnd="8dp"
+                            android:background="@drawable/bg_input_options"
+                            android:contentDescription="@string/description_btn_clear"
+                            android:padding="8dp"
+                            android:src="@drawable/ic_clear"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintDimensionRatio="1:1"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/ImageButton_Emoji"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:tint="?android:attr/textColorPrimary" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/ConstraintLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:elevation="8dp"
+                        android:foreground="@drawable/btn_colored_ripple"
+                        android:minHeight="?android:attr/actionBarSize"
+                        tools:ignore="UnusedAttribute">
+
+                        <com.edgeatzero.library.view.SpanEditText
+                            android:id="@+id/SpanEditText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="8dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginEnd="8dp"
+                            android:autofillHints="@null"
+                            android:background="@drawable/bg_input_commentary"
+                            android:hint="@{ model.reply == null ? @string/hint_add_commentary : @string/hint_reply_commentary(model.reply.user.name)}"
+                            android:imeOptions="normal"
+                            android:inputType="textMultiLine"
+                            android:maxLength="@{model.maxLength}"
+                            android:maxLines="3"
+                            android:paddingHorizontal="12dp"
+                            android:paddingVertical="8dp"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/ImageButton_Send"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:hint="@string/hint_add_commentary" />
+
+                        <ImageButton
+                            android:id="@+id/ImageButton_Send"
+                            invisible="@{!model.postState.loading}"
+                            translation="@{true}"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="16dp"
+                            android:background="@drawable/btn_colored_ripple_border_less"
+                            android:clickable="@{!model.postState.loading}"
+                            android:contentDescription="@string/description_btn_send"
+                            android:enabled="@{model.comment.length() > 0}"
+                            android:padding="4dp"
+                            android:src="@drawable/ic_send"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintDimensionRatio="1:1"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/EditText"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:tint="?attr/textColorThemeAccent" />
+
+                        <me.zhanghai.android.materialprogressbar.MaterialProgressBar
+                            android:id="@+id/MaterialProgressBar"
+                            translation="@{true}"
+                            visible="@{model.postState.loading}"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:elevation="10dp"
+                            android:visibility="gone"
+                            app:layout_constraintBottom_toBottomOf="@id/ImageButton_Send"
+                            app:layout_constraintEnd_toEndOf="@id/ImageButton_Send"
+                            app:layout_constraintStart_toStartOf="@id/ImageButton_Send"
+                            app:layout_constraintTop_toTopOf="@id/ImageButton_Send" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.effective.android.panel.view.content.RelativeContentContainer>
+
+                <com.effective.android.panel.view.panel.PanelContainer
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/secondBackgroundColor">
+
+                    <com.effective.android.panel.view.panel.PanelView
+                        android:id="@+id/PanelView_Emoji"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:panel_layout="@layout/layout_panel_emoji"
+                        app:panel_trigger="@id/ImageButton_Emoji" />
+
+                </com.effective.android.panel.view.panel.PanelContainer>
+
+            </com.effective.android.panel.view.PanelSwitchLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.edgeatzero.library.view.StatusBarTintedLayout>
+
+</layout>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="ShapeButton_elevation_normal">2dp</dimen>
+    <dimen name="ShapeButton_elevation_click">10dp</dimen>
+    <dimen name="ShapeButton_Button_padding_bottom">4dp</dimen>
+    <dimen name="ShapeButton_Button_padding_left">16dp</dimen>
+    <dimen name="ShapeButton_Button_padding_right">16dp</dimen>
+    <dimen name="ShapeButton_Button_padding_top">4dp</dimen>
+
+    <dimen name="FloatingActionMenuButton_size_image">24dp</dimen>
+
+    <dimen name="FloatingActionMenuLayout_padding">16dp</dimen>
+
+    <dimen name="FloatingActionMenuButton_elevation">6dp</dimen>
+    <dimen name="FloatingActionMenuButton_padding_normal">15dp</dimen>
+    <dimen name="FloatingActionMenuButton_padding_mini">10dp</dimen>
+    <dimen name="FloatingActionMenuButton_size_normal">56dp</dimen>
+    <dimen name="FloatingActionMenuButton_size_mini">40dp</dimen>
+
+    <dimen name="FloatingActionMenuLayout_label_padding">16dp</dimen>
+    <dimen name="FloatingActionMenuLayout_button_padding">16dp</dimen>
+    <dimen name="FloatingActionMenuLayout_content_padding">16dp</dimen>
+</resources>

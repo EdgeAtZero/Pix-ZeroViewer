@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.edgeatzero.library.view.StatusBarTintedLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.ranking.RankingActivity">
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/CoordinatorLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/AppBarLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/colorPrimary"
+                android:theme="@style/AppTheme.AppBarOverlay">
+
+                <com.google.android.material.appbar.MaterialToolbar
+                    android:id="@+id/Toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?android:attr/actionBarSize"
+                    app:layout_scrollFlags="scroll|enterAlways"
+                    app:menu="@menu/menu_illustration_ranking"
+                    app:navigationIcon="@drawable/ic_arrow_back"
+                    app:title="@string/title_ranking" />
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/TabLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_scrollFlags="noScroll"
+                    app:tabMode="scrollable">
+
+                </com.google.android.material.tabs.TabLayout>
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/ViewPager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/FloatingActionButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|bottom"
+                android:layout_margin="16dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/ic_keyboard_arrow_up"
+                android:theme="@style/AppTheme.AppBarOverlay"
+                app:elevation="10dp"
+                app:fabSize="mini"
+                app:layout_behavior="com.edgeatzero.library.behavior.HideBottomViewOnScrollBehavior"
+                app:mode="down"
+                app:tint="@null" />
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    </com.edgeatzero.library.view.StatusBarTintedLayout>
+
+</layout>

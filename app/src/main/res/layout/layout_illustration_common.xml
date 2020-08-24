@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="PrivateResource">
+
+    <data>
+
+        <variable
+            name="state"
+            type="com.edgeatzero.library.model.State" />
+
+        <variable
+            name="drawable"
+            type="android.graphics.drawable.Drawable" />
+
+        <variable
+            name="illustration"
+            type="com.edgeatzero.projects.pixiv.model.Illustration" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView style="@style/AppStyle.CardView">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ImageView"
+                url="@{illustration.url}"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="8dp"
+                android:contentDescription="@string/description_illustration"
+                android:scaleType="centerCrop"
+                android:transitionName="picture"
+                app:layout_constraintBottom_toTopOf="@id/ShapeImageView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_height="200dp"
+                tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+            <ImageView
+                android:id="@+id/ImageView_Ranking"
+                visible="@{drawable != null}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:contentDescription="@string/description_ranking_icon"
+                android:src="@{drawable}"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@drawable/ic_ranking_first"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/TextVIew_Count"
+                style="@style/AppStyle.TextView.Float"
+                visible="@{!illustration.singleIllustration}"
+                android:layout_marginEnd="6dp"
+                android:layout_marginBottom="6dp"
+                android:text='@{illustration.pageCount + "P"}'
+                app:layout_constraintBottom_toBottomOf="@id/ImageView"
+                app:layout_constraintEnd_toStartOf="@id/TextVIew_GIF"
+                tools:text="3P" />
+
+            <TextView
+                android:id="@+id/TextVIew_GIF"
+                style="@style/AppStyle.TextView.Float"
+                visible="@{illustration.gif}"
+                android:layout_marginEnd="6dp"
+                android:layout_marginBottom="6dp"
+                android:text="GIF"
+                app:layout_constraintBottom_toBottomOf="@id/ImageView"
+                app:layout_constraintEnd_toEndOf="@id/ImageView"
+                tools:ignore="HardcodedText" />
+
+            <com.edgeatzero.library.view.ShapeImageView
+                android:id="@+id/ShapeImageView"
+                url="@{illustration.headPicture}"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="8dp"
+                android:contentDescription="@string/description_head_picture"
+                android:scaleType="centerCrop"
+                app:circle="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:src="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/TextView_Author"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:ellipsize="end"
+                android:lines="1"
+                android:text="@{illustration.title}"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toTopOf="@id/TextView_Date"
+                app:layout_constraintEnd_toStartOf="@id/TextView_Like"
+                app:layout_constraintStart_toEndOf="@id/ShapeImageView"
+                app:layout_constraintTop_toTopOf="@id/ShapeImageView"
+                app:layout_constraintVertical_chainStyle="spread"
+                tools:text="@tools:sample/full_names" />
+
+            <TextView
+                android:id="@+id/TextView_Date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:lines="1"
+                android:text="@{illustration.date}"
+                android:textColor="?android:attr/textColorSecondary"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="@id/ShapeImageView"
+                app:layout_constraintEnd_toEndOf="@id/TextView_Author"
+                app:layout_constraintStart_toStartOf="@id/TextView_Author"
+                app:layout_constraintTop_toBottomOf="@id/TextView_Author"
+                tools:ignore="SmallSp"
+                tools:text="@tools:sample/date/hhmmss" />
+
+            <TextView
+                android:id="@+id/TextView_Like"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:lines="1"
+                android:text="@{illustration.likeCount}"
+                android:textColor="?android:attr/textColorSecondary"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="@id/ShapeImageView"
+                app:layout_constraintEnd_toStartOf="@id/include"
+                app:layout_constraintStart_toEndOf="@id/TextView_Author"
+                app:layout_constraintTop_toTopOf="@id/ShapeImageView"
+                tools:ignore="SmallSp"
+                tools:text="1.07k" />
+
+            <include
+                android:id="@+id/include"
+                layout="@layout/layout_like_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/ShapeImageView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/ShapeImageView"
+                app:src="@{illustration.liked ? @drawable/ic_like : @drawable/ic_like_2}"
+                app:state="@{state}" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

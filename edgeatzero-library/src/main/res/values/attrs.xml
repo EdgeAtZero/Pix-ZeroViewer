@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!--        <declare-styleable name="NestedScrollableHost">-->
+    <!--            <attr name="viewPagerId" format="reference" />-->
+    <!--            <attr name="target" format="reference" />-->
+    <!--        </declare-styleable>-->
+
+    <declare-styleable name="HideBottomViewOnScrollBehavior">
+        <attr name="target" />
+        <attr name="mode" format="enum">
+            <enum name="up" value="0" />
+            <enum name="down" value="1" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="ExpandableLayout">
+        <attr name="animationDuration" format="integer">
+            <enum name="slowest" value="300" />
+            <enum name="slow" value="250" />
+            <enum name="standard" value="200" />
+            <enum name="fast" value="150" />
+            <enum name="fastest" value="100" />
+        </attr>
+        <attr name="expanded" format="boolean" />
+        <attr name="expandMode" format="enum">
+            <enum name="left" value="0" />
+            <enum name="top" value="1" />
+            <enum name="right" value="2" />
+            <enum name="bottom" value="3" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="StatusBarTintedLayout">
+        <attr name="statusBarBackgroundColor" format="color|reference" />
+        <attr name="enableStatusBarMargin" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="ScrollableViewPager">
+        <attr name="scrollable" format="boolean" />
+    </declare-styleable>
+
+    <!--    <declare-styleable name="FloatingActionsMenuButton">-->
+    <!--        <attr name="label" />-->
+    <!--        <attr name="size" format="enum">-->
+    <!--            <enum name="normal" value="0" />-->
+    <!--            <enum name="mini" value="1" />-->
+    <!--        </attr>-->
+    <!--        <attr name="backgroundTint" />-->
+    <!--    </declare-styleable>-->
+
+    <!--    <declare-styleable name="FloatingActionsMenuToggleButton">-->
+    <!--        <attr name="toggleIcon" format="reference" />-->
+    <!--        <attr name="toggleIconTint" format="color" />-->
+    <!--    </declare-styleable>-->
+
+    <!--    <declare-styleable name="FloatingActionsMenuLayout">-->
+    <!--        <attr name="toggleButton" format="reference" />-->
+    <!--        <attr name="labelStyle" format="reference" />-->
+    <!--        <attr name="labelPadding" format="dimension" />-->
+    <!--        <attr name="buttonPadding" format="dimension" />-->
+    <!--        <attr name="contentPadding" format="dimension" />-->
+    <!--        <attr name="orientation" format="enum">-->
+    <!--            <enum name="vertical" value="0" />-->
+    <!--            <enum name="horizontal" value="1" />-->
+    <!--        </attr>-->
+    <!--        <attr name="labelGravity" format="enum">-->
+    <!--            <enum name="start" value="0" />-->
+    <!--            <enum name="end" value="1" />-->
+    <!--        </attr>-->
+    <!--    </declare-styleable>-->
+
+    <declare-styleable name="ShapeConstraintLayout">
+        <attr name="circle" />
+        <attr name="radius" />
+        <attr name="radiusLeftTop" />
+        <attr name="radiusRightTop" />
+        <attr name="radiusRightBottom" />
+        <attr name="radiusLeftBottom" />
+    </declare-styleable>
+
+    <declare-styleable name="ShapeFrameLayout">
+        <attr name="circle" />
+        <attr name="radius" />
+        <attr name="radiusLeftTop" />
+        <attr name="radiusRightTop" />
+        <attr name="radiusRightBottom" />
+        <attr name="radiusLeftBottom" />
+    </declare-styleable>
+
+    <declare-styleable name="ShapeImageView">
+        <attr name="circle" />
+        <attr name="radius" />
+        <attr name="radiusLeftTop" />
+        <attr name="radiusRightTop" />
+        <attr name="radiusRightBottom" />
+        <attr name="radiusLeftBottom" />
+    </declare-styleable>
+
+    <declare-styleable name="ShapeNestedScrollView">
+        <attr name="circle" />
+        <attr name="radius" />
+        <attr name="radiusLeftTop" />
+        <attr name="radiusRightTop" />
+        <attr name="radiusRightBottom" />
+        <attr name="radiusLeftBottom" />
+    </declare-styleable>
+
+    <attr name="target" format="reference" />
+    <attr name="backgroundTint" format="color" />
+    <attr name="icon" format="reference" />
+    <attr name="tint" format="color" />
+    <attr name="label" format="string" />
+    <attr name="viewPager" format="reference" />
+    <attr name="itemPadding" format="dimension" />
+    <attr name="elevation" format="dimension" />
+    <attr name="circle" format="boolean" />
+    <attr name="radius" format="dimension" />
+    <attr name="radiusLeftTop" format="dimension" />
+    <attr name="radiusRightTop" format="dimension" />
+    <attr name="radiusRightBottom" format="dimension" />
+    <attr name="radiusLeftBottom" format="dimension" />
+
+</resources>

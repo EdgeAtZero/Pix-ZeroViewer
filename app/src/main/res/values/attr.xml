@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="filter_divider" format="reference" />
+    <attr name="colorControlNormalInverse" format="color" />
+    <attr name="textColorThemeAccent" format="reference|color" />
+    <attr name="textColorThemeAccentInverse" format="reference|color" />
+    <attr name="textColorThemePrimary" format="reference|color" />
+    <attr name="textColorThemePrimaryInverse" format="reference|color" />
+    <attr name="colorBackgroundInverse" format="color" />
+</resources>

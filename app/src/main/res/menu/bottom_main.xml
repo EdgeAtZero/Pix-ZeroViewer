@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_recommend"
+        android:icon="@drawable/ic_gesture"
+        android:title="@string/menu_recommend" />
+
+    <item
+        android:id="@+id/navigation_dynamic"
+        android:icon="@drawable/ic_dynamic"
+        android:title="@string/menu_dynamic" />
+
+</menu>

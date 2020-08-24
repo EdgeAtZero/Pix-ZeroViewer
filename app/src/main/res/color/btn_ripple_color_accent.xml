@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <!--    <item android:alpha="?android:attr/disabledAlpha" android:color="?android:attr/textColorPrimary" android:state_enabled="false" />-->
+    <!--    <item android:alpha="?android:attr/disabledAlpha" android:color="?android:attr/colorAccent" />-->
+    <item android:alpha="@dimen/mtrl_low_ripple_pressed_alpha" android:color="?android:attr/colorAccent" android:state_pressed="true" tools:ignore="PrivateResource" />
+    <item android:alpha="@dimen/mtrl_low_ripple_focused_alpha" android:color="?android:attr/colorAccent" android:state_focused="true" android:state_hovered="true" tools:ignore="PrivateResource" />
+    <item android:alpha="@dimen/mtrl_low_ripple_focused_alpha" android:color="?android:attr/colorAccent" android:state_focused="true" tools:ignore="PrivateResource" />
+    <item android:alpha="@dimen/mtrl_low_ripple_hovered_alpha" android:color="?android:attr/colorAccent" android:state_hovered="true" tools:ignore="PrivateResource" />
+    <item android:alpha="@dimen/mtrl_low_ripple_default_alpha" android:color="?android:attr/colorAccent" tools:ignore="PrivateResource" />
+</selector>
